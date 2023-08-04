@@ -3,30 +3,30 @@ name: Build
 on: workflow_dispatch
 
 jobs:
-    android:
-        runs-on: ubuntu-latest
+  android:
+    runs-on: ubuntu-latest
         
-        steps:
-          - name: Checkout code
-                uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
         
-          - name: Setup Haxe environment
-                uses: krdlab/setup-haxe@v1.5.1
+      - name: Setup Haxe environment
+        uses: krdlab/setup-haxe@v1.5.1
         
-          - name: Install dependencies
-                run: |
-                    haxelib install flixel
-                haxelib install lime
+      - name: Install dependencies
+        run: |
+          haxelib install flixel
+          haxelib install lime
             
-          - name: Build game
-            run: |
-                haxelib run lime setup
-                haxelib run lime config ANDROID_SETUP true
-                haxelib run lime build android
-                haxelib run lime test android
-            
-          - name: Upload artifact
-            uses: actions/upload-artifact@v3
-                with:
-                    name: Game
-                    path: .
+      - name: Build game
+        run: |
+          haxelib run lime setup
+          haxelib run lime config ANDROID_SETUP true
+          haxelib run lime build android
+          haxelib run lime test android
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Game
+          path: .
