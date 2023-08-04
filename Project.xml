@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <app main="com.paneladade87.fnafp" flie="fnafp" path="Export" />
+    <assets path="assets" />
+    <source path="source" />
+    <library name="flixel" />
+    <library name="lime" />
+</project>
